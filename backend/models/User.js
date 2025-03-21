@@ -7,17 +7,32 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
 });
 
-// encrypt password
+// Encrypt the password
 userSchema.pre('save', async function (next) {
-  if (this.isModified('password')) {
-    this.password = await bcrypt.hash(this.password, 10);
-  }
-  next();
-});
-
-// validate password
-userSchema.methods.comparePassword = async function (password) {
-  return await bcrypt.compare(password, this.password);
-};
+    // make sure the password field is modified
+    if (!this.isModified('password')) {
+      return next();
+    }
+  
+    try {
+      // generate salt and encrypt the password
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(this.password, salt);
+      this.password = hashedPassword;
+      next();
+    } catch (err) {
+      next(err);
+    }
+  });
+  
+  // validate the password
+  userSchema.methods.comparePassword = async function (password) {
+    try {
+      return await bcrypt.compare(password, this.password);
+    } catch (err) {
+      console.error('Error comparing passwords:', err);
+      return false;
+    }
+  };
 
 module.exports = mongoose.model('User', userSchema);
