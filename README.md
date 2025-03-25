@@ -24,6 +24,7 @@ A full-stack web application for managing a simple to-do list with user authenti
 - **Database**: MongoDB with Mongoose
 - **Authentication**: JWT (JSON Web Tokens)
 - **Testing**: Unit tests for API endpoints
+- **Deployment**: Heroku
 
 ## Project Structure
 
@@ -153,15 +154,20 @@ npm test
 
 ## Deployment
 
-The application can be deployed to cloud services like:
-- Heroku
-- Vercel
-- Netlify
+### Backend Deployment Details
+- **Platform**: Heroku
+- **Stack**: Heroku-24
+- **Deployment URL**: https://todo-app-backend-milohug-7b760c76ed8c.herokuapp.com/
+- **Repository Size**: 67 KB
+- **Slug Size**: 55 MB
+- **Owner**: futuresdeki@gmail.com
+- **Region**: US
 
-Follow these general steps for deployment:
-1. Set up environment variables in your deployment platform
-2. Configure your MongoDB connection string for production
-3. Deploy the backend and frontend separately or as a unified application
+### Deployment Steps
+1. Set up environment variables in Heroku dashboard
+2. Configure MongoDB connection string for production
+3. Push your code to Heroku remote
+4. Heroku will automatically build and deploy your application
 
 ## Contributing
 
