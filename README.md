@@ -151,7 +151,7 @@ npm test
 cd frontend
 npm test
 ```
-
+<!--
 ## Deployment
 
 ### Backend Deployment Details
@@ -163,11 +163,13 @@ npm test
 - **Owner**: futuresdeki@gmail.com
 - **Region**: US
 
+
 ### Deployment Steps
 1. Set up environment variables in Heroku dashboard
 2. Configure MongoDB connection string for production
 3. Push your code to Heroku remote
 4. Heroku will automatically build and deploy your application
+-->
 
 ## Contributing
 
